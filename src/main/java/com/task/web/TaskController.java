@@ -37,7 +37,7 @@ public class TaskController {
 
     @ModelAttribute
     public void setStatuses(Model model) {
-        model.addAttribute("statuses", Arrays.asList(Status.IN_PROGRESS, Status.DONE, Status.PAUSED));
+        model.addAttribute("statuses", Arrays.asList(Status.values()));
     }
 
     @GetMapping("/")
