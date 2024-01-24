@@ -1,0 +1,135 @@
+body {
+    margin: 0;
+    padding: 0;
+    font: 16px/20px Calibri;
+    background-color: #f4f8ff;
+}
+.container {
+    width: 50%;
+    min-width: 600px;
+    height: 100vh;
+    margin: 0 auto;
+}
+label,
+.pages {
+    display: block;
+    height: 30px;
+    padding: 10px 0;
+    line-height: 30px;
+}
+label {
+    text-align: right;
+}
+.pages {
+    text-align: center;
+}
+img {
+    height: 25px;
+}
+.pages a,
+.pages span {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    margin-right: 5px;
+    color: #666;
+    text-align: center;
+    line-height: 30px;
+    border: 1px solid #aaa;
+    border-radius: 5px;
+    text-decoration: none;
+}
+.pages .current,
+.pages a:active {
+    color: #fff;
+    background-color: #666;
+}
+select {
+    height: 30px;
+    margin-left: 15px;
+}
+table {
+    width: 100%;
+    border-top: 1px solid #aaa;
+    border-bottom: 1px solid #aaa;
+}
+th,
+td {
+    padding: 0;
+    line-height: 30px;
+    text-align: left;
+}
+.edit,
+.save,
+.delete {
+    display: block;
+    width: 20px;
+    height: 20px;
+    padding: 0 5px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+.edit {
+    background-image: url("/images/edit.png");
+}
+.save {
+    background-image: url("/images/save.png");
+}
+.delete {
+    background-image: url("/images/delete.png");
+}
+input,
+select {
+    height: 25px;
+    padding: 0 5px;
+    line-height: 25px;
+    color: #000;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    border-radius: 2px;
+    opacity: 1;
+}
+#tasks input {
+    width: 200px;
+}
+#tasks select {
+    width: 150px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+#tasks select::-ms-expand {
+    display: none;
+}
+#page_count,
+input.active,
+select.active {
+    border: 1px solid #333;
+}
+select.active {
+    -webkit-appearance: listbox;
+    -moz-appearance: listbox;
+    appearance: auto;
+}
+select.active::-ms-expand {
+    display: list-item;
+}
+#task {
+    margin-bottom: 10px;
+}
+#task caption {
+    padding: 10px 0 7px;
+    text-align: left;
+}
+#new_link {
+    color: #333333;
+    text-decoration: none;
+}
+#task td {
+    line-height: 50px;
+}
+#new_task {
+    display: none;
+}

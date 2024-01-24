@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Tasks</title>
+    <link href="/css/styles.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="container">
+    <label>
+        Элементов на странице:
+        <select name="page_count" id="page_count" onchange="load()">
+            <option th:value="3" th:text="3" th:selected="${currentCount == 3}"></option>
+            <option th:value="5" th:text="5" th:selected="${currentCount == 5}"></option>
+            <option th:value="10" th:text="10" th:selected="${currentCount == 10}"></option>
+            <option th:value="20" th:text="20" th:selected="${currentCount == 20}"></option>
+            <option th:value="50" th:text="50" th:selected="${currentCount == 50}"></option>
+        </select>
+    </label>
+
+    <table id="tasks">
+        <caption>Tasks</caption>
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Description</th>
+            <th>Status</th>
+            <th></th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="task:${tasks}" th:attr="data-id=${task.id}">
+            <td th:text="${task.id}"></td>
+            <td class="description">
+                <input type="text" th:value="${task.description}" disabled>
+            </td>
+            <td class="status">
+                <select disabled>
+                    <option th:each="status : ${statuses}" th:value="${status}" th:text="${status}" th:selected="${status == task.status}"></option>
+                </select>
+            </td>
+            <td>
+                <a th:href="@{/tasks/{id}(id=${task.id})}" th:attr="data-id=${task.id}" class="edit"></a>
+            </td>
+            <td>
+                <a th:href="@{/tasks/{id}(id=${task.id})}" th:attr="data-id=${task.id}" class="delete"></a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+    <table id="task">
+        <caption><a href="#" id="new_link">Add new task</a></caption>
+        <tbody id="new_task">
+        <tr>
+            <td>#</td>
+            <td class="description">
+                <input type="text" class="active">
+            </td>
+            <td class="status">
+                <select class="active">
+                    <option th:each="status : ${statuses}" th:value="${status}" th:text="${status}"></option>
+                </select>
+            </td>
+            <td></td>
+            <td>
+                <a th:href="@{/tasks}" class="save"></a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+    <div class="pages">
+        <th:block th:if="${totalPages > 1}" th:each="i: ${#numbers.sequence(0, totalPages - 1)}">
+            <span th:if="${currentPage == i + 1}" th:text="${i + 1}" class="current"></span>
+            <a th:href="@{/(page=${i + 1})}" th:unless="${currentPage == i + 1}" th:text="${i + 1}" th:attr="data-id=${i + 1}"></a>
+        </th:block>
+    </div>
+</div>
+
+<script src="/js/jquery-3.7.1.min.js"></script>
+<script src="/js/functions.js"></script>
+<script src="/js/scripts.js"></script>
+</body>
+</html>
