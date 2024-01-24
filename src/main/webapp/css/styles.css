@@ -109,12 +109,12 @@ select.active {
     border: 1px solid #333;
 }
 select.active {
-    -webkit-appearance: listbox;
-    -moz-appearance: listbox;
-    appearance: auto;
+    -webkit-appearance: listbox !important;
+    -moz-appearance: listbox !important;
+    appearance: auto !important;
 }
 select.active::-ms-expand {
-    display: list-item;
+    display: list-item !important;
 }
 #task {
     margin-bottom: 10px;
